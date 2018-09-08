@@ -89,8 +89,12 @@ class TriviaAppElement extends HTMLElement {
 		}
 	}
 
-	onKeyDown(event) {
-		switch (event.key) {
+	onKeyDown({ key, target }) {
+		if (target !== this) {
+			return;
+		}
+
+		switch (key) {
 			case 'ArrowLeft':
 				this.prevQuestion();
 				break;
