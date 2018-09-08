@@ -1,120 +1,124 @@
 * {
-  box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+:focus {
+	outline: 0;
 }
 
 body {
-  background: black;
-  color: white;
-  font: 200 36px/1.3 -apple-system, BlinkMacSystemFont, Helvetica, sans-serif;
-  letter-spacing: 1px;
-  margin: 0;
+	background: black;
+	color: white;
+	font: 200 36px/1.3 -apple-system, BlinkMacSystemFont, Helvetica, sans-serif;
+	letter-spacing: 1px;
+	margin: 0;
 }
 
 @media (min-width: 640px) {
-  body {
-    font-size: 36px;
-  }
+	body {
+		font-size: 36px;
+	}
 }
 
 button,
 input {
-  background-color: transparent;
-  border: 0;
-  color: inherit;
-  font: inherit;
-  outline: 0;
+	background-color: transparent;
+	border: 0;
+	color: inherit;
+	font: inherit;
+	outline: 0;
 }
 
 button {
-  padding: 0 0.5em;
-  background: dodgerblue;
-  border-radius: 0.25em;
-  color: black;
-  cursor: pointer;
+	padding: 0 0.5em;
+	background: dodgerblue;
+	border-radius: 0.25em;
+	color: black;
+	cursor: pointer;
 }
 
 input {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  min-width: 0;
-  border: 0;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	min-width: 0;
+	border: 0;
 }
 
-input[type="number"] {
-  width: 3ch;
-  text-align: right;
+input[type='number'] {
+	width: 3ch;
+	text-align: right;
 }
 
 .trivia {
-  display: grid;
-  grid-template-areas:
-    "question"
-    "answer"
-    "players"
-    "actions";
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr 2fr auto auto;
-  grid-gap: 1em;
-  padding: 1em;
-  height: 100vh;
-  width: 100vw;
+	display: grid;
+	grid-template-areas:
+		'question'
+		'answer'
+		'players'
+		'actions';
+	grid-template-columns: 1fr;
+	grid-template-rows: 1fr 2fr auto auto;
+	grid-gap: 1em;
+	padding: 1em;
+	height: 100vh;
+	width: 100vw;
 }
 
 @media (min-width: 640px) {
-  .trivia {
-    grid-template-areas:
-      "question question"
-      "answer answer"
-      "players actions";
-    grid-template-columns: fit-content min-content;
-    grid-template-rows: 2fr 3fr min-content;
-  }
+	.trivia {
+		grid-template-areas:
+			'question question'
+			'answer answer'
+			'players actions';
+		grid-template-columns: fit-content min-content;
+		grid-template-rows: 2fr 3fr min-content;
+	}
 }
 
 .trivia-question {
-  grid-area: question;
-  display: flex;
-  align-items: flex-end;
-  column-count: 1;
-  widows: 3;
+	grid-area: question;
+	display: flex;
+	align-items: flex-end;
+	column-count: 1;
+	widows: 3;
 }
 
 .trivia-answer {
-  grid-area: answer;
-  display: flex;
-  align-items: flex-start;
-  color: dodgerblue;
-  column-count: 1;
-  widows: 3;
+	grid-area: answer;
+	display: flex;
+	align-items: flex-start;
+	color: dodgerblue;
+	column-count: 1;
+	widows: 3;
 }
 
 .trivia-players {
-  grid-area: players;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+	grid-area: players;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 @media (min-width: 640px) {
-  .trivia-players {
-    justify-content: flex-start;
-  }
+	.trivia-players {
+		justify-content: flex-start;
+	}
 }
 
 .trivia-actions {
-  grid-area: actions;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+	grid-area: actions;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .trivia-actions > * + * {
-  margin-left: 0.25em;
+	margin-left: 0.25em;
 }
 
 @media (min-width: 640px) {
-  .trivia-actions {
-    justify-content: flex-end;
-  }
+	.trivia-actions {
+		justify-content: flex-end;
+	}
 }
