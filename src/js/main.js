@@ -9,11 +9,25 @@ class TriviaAppElement extends HTMLElement {
 		super();
 
 		this.addEventListener('click', this.onClick);
+		this.addEventListener('keydown', this.onKeyDown);
 	}
 
 	connectedCallback() {
+		this.setAttribute('tabindex', '0');
+		this.focus();
+
 		this.questionElement = this.querySelector('[trivia-app-question]');
 		this.answerElement = this.querySelector('[trivia-app-answer]');
+
+		switch (new Date().getDay()) {
+			case 3:
+				this.questionElement.innerHTML = 'Stump Day!';
+				break;
+
+			case 4:
+				this.questionElement.innerHTML = 'Thanks Day!';
+				break;
+		}
 	}
 
 	prevQuestion() {
@@ -55,11 +69,63 @@ class TriviaAppElement extends HTMLElement {
 		this.answerElement.innerHTML = '';
 	}
 
+	incrementPlayer(index) {
+		const playerInputs = this.querySelectorAll('input[type="number"]');
+
+		playerInputs[index].value++;
+	}
+
+	decrementPlayer(index) {
+		const playerInputs = this.querySelectorAll('input[type="number"]');
+
+		playerInputs[index].value--;
+	}
+
 	onClick(event) {
 		const { name } = event.target;
 
 		if (typeof this[name] === 'function') {
 			this[name](event);
+		}
+	}
+
+	onKeyDown(event) {
+		switch (event.key) {
+			case 'ArrowLeft':
+				this.prevQuestion();
+				break;
+
+			case 'ArrowRight':
+				this.nextQuestion();
+				break;
+
+			case 'q':
+				this.askQuestion();
+				break;
+
+			case 'a':
+				this.answerQuestion();
+				break;
+
+			case 'x':
+				this.hideQuestion();
+				break;
+
+			case '1':
+				this.incrementPlayer(0);
+				break;
+
+			case '!':
+				this.decrementPlayer(0);
+				break;
+
+			case '2':
+				this.incrementPlayer(1);
+				break;
+
+			case '@':
+				this.decrementPlayer(1);
+				break;
 		}
 	}
 }

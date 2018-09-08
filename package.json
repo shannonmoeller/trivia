@@ -15,7 +15,7 @@
   "license": "ISC",
   "dependencies": {
     "livery": "^2.2.0",
-    "serve": "^9.2.0"
+    "serve": "^10.0.0"
   },
   "devDependencies": {
     "npm-run-all": "^4.1.3"
