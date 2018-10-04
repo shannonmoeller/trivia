@@ -1,26 +1,18 @@
 export const review = [
 	{
-		question: `What did God create on the first three days?`,
+		question: `List what did God made on each day of creation.`,
 		answer: ``
 	},
 	{
-		question: `What did God create on the last three days?`,
+		question: `List the Ten Commandments.`,
 		answer: ``
 	},
 	{
-		question: `List the first five commandments?`,
+		question: `List the Whole Armor of God.`,
 		answer: ``
 	},
 	{
-		question: `List the last five commandments?`,
-		answer: ``
-	},
-	{
-		question: `List the whole armor of God.`,
-		answer: ``
-	},
-	{
-		question: `List the fruits of the Spirit.`,
+		question: `List the Fruit of the Spirit.`,
 		answer: ``
 	}
 ];
@@ -69,7 +61,7 @@ export const general = [
 	},
 	{
 		question: `How did Noah know there was dry land again?`,
-		answer: `He sent out a raven and two doves; the last had an olive branch`
+		answer: `He sent out a raven once and a dove three times`
 	},
 	{
 		question: `What is the sign of God's promise that He wouldn't flood the whole earth again?`,
@@ -153,7 +145,7 @@ export const general = [
 	},
 	{
 		question: `What did David do to King Saul while he was sleeping?`,
-		answer: `Took some of this hair`
+		answer: `Took a corner of his robe`
 	},
 	{
 		question: `Who was King Solomon's dad?`,
@@ -224,8 +216,8 @@ export const general = [
 		answer: `Turned water into wine`
 	},
 	{
-		question: `What did Jesus use to feed lots of people?`,
-		answer: `A few fish and some bread`
+		question: 'With what did Jesus feed 5,000 people?',
+		answer: 'Five loaves of bread and two small fish'
 	},
 	{
 		question: `How did Jesus calm the storm at sea?`,
@@ -260,11 +252,6 @@ export const general = [
 	{
 		question: 'Who were the first apostles called to follow Jesus?',
 		answer: 'Peter and Andrew'
-	},
-	{
-		question:
-			'How many people did Jesus feed with five loaves of bread and two fish?',
-		answer: 'about 5000 men'
 	},
 	{
 		question:
@@ -315,11 +302,6 @@ export const general = [
 		question:
 			'Whose example does Paul say Christians should follow in Chapter 5 of Ephesians?',
 		answer: 'Christ’s'
-	},
-	{
-		question:
-			'After Jesus fed 5,000+ people with two fish and five loaves of bread, how many baskets were left over?',
-		answer: '12'
 	},
 	{
 		question:
@@ -443,10 +425,6 @@ export const general = [
 		answer: 'The wise men'
 	},
 	{
-		question: 'With what did Jesus feed 5000 people?',
-		answer: 'Loaves and fishes'
-	},
-	{
 		question:
 			'Who are the religious leaders who continually tried to trap Jesus with their questions?',
 		answer: 'Pharisees'
@@ -502,16 +480,8 @@ export const general = [
 		answer: 'Revelation'
 	},
 	{
-		question: 'On what day of Creation did God create man?',
-		answer: 'Sixth Day'
-	},
-	{
 		question: 'What was the name of Adam’s third son?',
 		answer: 'Seth'
-	},
-	{
-		question: 'What was the first of the Ten Commandments?',
-		answer: 'You shall have no other gods before me'
 	},
 	{
 		question: 'Who was the mother of Samuel?',
@@ -743,7 +713,7 @@ export const general = [
 	{
 		question:
 			'Why does God curse the Israelites to wander the desert for forty years before entering the Promised Land?',
-		answer: 'Because the Israelites vote down Moses as their leader'
+		answer: 'Because they did not believe that God would fight for them'
 	},
 	{
 		question:
@@ -754,10 +724,6 @@ export const general = [
 		question: 'Who betrays Samson to the Philistines?',
 		answer: 'Delilah'
 	},
-	// {
-	//   question: "Why does the prophet Nathan rebuke David?",
-	//   answer: "David commits adultery with Bathsheba."
-	// },
 	{
 		question:
 			'What does David bring to Jerusalem to bless the religious city?',
@@ -920,10 +886,6 @@ export const general = [
 		answer: 'Moses'
 	},
 	{
-		question: 'What are we told to do in the fifth commandment?',
-		answer: 'Honor your father and mother'
-	},
-	{
 		question: 'What was the name of Moses’ brother?',
 		answer: 'Aaron'
 	},
@@ -952,10 +914,6 @@ export const general = [
 	{
 		question: 'This prophet was swallowed by a fish.',
 		answer: 'Jonah'
-	},
-	{
-		question: 'What animal was often used for transportation in the Bible?',
-		answer: 'Camel or donkey'
 	},
 	{
 		question: 'Who was the Son of God?',
@@ -988,10 +946,6 @@ export const general = [
 	{
 		question: 'What is another name for the Sermon on the Mount?',
 		answer: 'The beatitudes'
-	},
-	{
-		question: 'What did Jesus feed to 5,000 people?',
-		answer: 'Five loaves of bread and two small fish'
 	},
 	{
 		question: 'What was the name of the Sea where Jesus calmed a storm?',

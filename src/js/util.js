@@ -1,6 +1,8 @@
-const MINUTE = 1000 * 60;
-const HOUR = MINUTE * 60;
-const DAY = HOUR * 24;
+export const WEDNESDAY = 3;
+export const THURSDAY = 4;
+export const MINUTE = 1000 * 60;
+export const HOUR = MINUTE * 60;
+export const DAY = HOUR * 24;
 
 export function getDayOfYear() {
 	const now = new Date();
@@ -10,8 +12,12 @@ export function getDayOfYear() {
 	return Math.floor(diff / DAY);
 }
 
+export function getDayOfWeek() {
+	return new Date().getDay();
+}
+
 export function getRandomInt(max) {
-	return Math.floor(Math.random() * Math.floor(max));
+	return Math.floor(Math.random() * (max + 1));
 }
 
 export function shuffleArray(array) {

@@ -1,5 +1,12 @@
 import { review, general } from './questions.js';
-import { getDayOfYear, shuffleArray } from './util.js';
+
+import {
+	WEDNESDAY,
+	THURSDAY,
+	getDayOfWeek,
+	getDayOfYear,
+	shuffleArray
+} from './util.js';
 
 const a = [].concat(review, shuffleArray(general));
 const b = [];
@@ -19,12 +26,12 @@ class TriviaAppElement extends HTMLElement {
 		this.questionElement = this.querySelector('[trivia-app-question]');
 		this.answerElement = this.querySelector('[trivia-app-answer]');
 
-		switch (new Date().getDay()) {
-			case 3:
+		switch (getDayOfWeek()) {
+			case WEDNESDAY:
 				this.questionElement.innerHTML = 'Stump Day!';
 				break;
 
-			case 4:
+			case THURSDAY:
 				this.questionElement.innerHTML = 'Thanks Day!';
 				break;
 		}
