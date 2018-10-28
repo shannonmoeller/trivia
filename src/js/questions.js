@@ -1,6 +1,6 @@
 export const review = [
 	{
-		question: `List what did God made on each day of creation.`,
+		question: `List what God made on each day of creation.`,
 		answer: ``
 	},
 	{
