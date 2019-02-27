@@ -19,6 +19,7 @@ html,
 body {
 	height: 100%;
 	width: 100%;
+	overflow: hidden;
 }
 
 body {
@@ -52,7 +53,10 @@ input[type='number'] {
 		'actions' min-content
 		/ 1fr;
 	grid-gap: 1em;
-	min-height: 100%;
+	position: fixed;
+	left: 0;
+	top: 0;
+	height: 100%;
 	width: 100%;
 	padding: 1em 1em 2em;
 }
@@ -66,6 +70,7 @@ input[type='number'] {
 	display: block;
 	grid-area: answer;
 	color: dodgerblue;
+	overflow: auto;
 }
 
 .trivia-players {
