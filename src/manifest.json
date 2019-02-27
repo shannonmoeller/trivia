@@ -1,0 +1,8 @@
+{
+  "name": "Bible Trivia",
+  "description": "Trivia for my kids.",
+  "background_color": "#000000",
+  "display": "standalone",
+  "orientation": "portrait",
+  "start_url": "/"
+}

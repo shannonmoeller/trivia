@@ -14,6 +14,14 @@ export const review = [
 	{
 		question: `List the Fruit of the Spirit.`,
 		answer: ``
+	},
+	{
+		question: `List the first five books of the Old Testament`,
+		answer: `Genesis, Exodus, Leviticus, Numbers, and Deuteronomy`
+	},
+	{
+		question: `List the first four books of the New Testament.`,
+		answer: `Matthew, Mark, Luke, and John`
 	}
 ];
 
@@ -160,14 +168,6 @@ export const general = [
 		answer: `Call for fire from heaven`
 	},
 	{
-		question: `Did Baal send fire to burn up the priests' offering?`,
-		answer: `No`
-	},
-	{
-		question: `Did God send fire to burn up Elijah's offering?`,
-		answer: `Yes`
-	},
-	{
 		question: `When God sent fire to burn up Elijah's offering, what else did it do?`,
 		answer: `Licked up the water`
 	},
@@ -255,11 +255,6 @@ export const general = [
 	},
 	{
 		question:
-			'After Jesus was arrested, which apostle disowned him three times?',
-		answer: 'Peter'
-	},
-	{
-		question:
 			'Who recognized Jesus as the Messiah when he was presented at the Temple as a baby?',
 		answer: 'Simeon'
 	},
@@ -270,14 +265,6 @@ export const general = [
 	{
 		question: 'Paul was shipwrecked on what island?',
 		answer: 'Malta'
-	},
-	{
-		question: 'What is the shortest book in the New Testament?',
-		answer: '2 John'
-	},
-	{
-		question: 'Who is the author of the Book of Revelation?',
-		answer: 'John'
 	},
 	{
 		question: 'Matthew was a _________.',
@@ -294,25 +281,6 @@ export const general = [
 		answer: 'Priest'
 	},
 	{
-		question:
-			'Finish this verse. “In every battle you will need faith as your ______ to stop the fiery arrows aimed at you by Satan.”',
-		answer: 'Shield'
-	},
-	{
-		question:
-			'Whose example does Paul say Christians should follow in Chapter 5 of Ephesians?',
-		answer: 'Christ’s'
-	},
-	{
-		question:
-			'What does Paul say may “abound more and more in knowledge and in all judgment?”',
-		answer: 'Love'
-	},
-	{
-		question: 'What tribe is Paul from?',
-		answer: 'Benjamin'
-	},
-	{
 		question: 'According to the Beatitudes who will be filled?',
 		answer: 'Those who hunger and thirst for righteousness'
 	},
@@ -322,28 +290,12 @@ export const general = [
 		answer: 'He was a fisherman.'
 	},
 	{
-		question:
-			'In the Gospel of Mark, how does the Virgin Mary learn of her pregnancy?',
-		answer: 'From the angel Gabriel'
-	},
-	{
-		question: 'Who is Stephen in Acts of the Apostles?',
+		question: 'Who is Stephen?',
 		answer: 'The first Christian martyr'
 	},
 	{
-		question:
-			'According to the Gospel of Matthew, who visits Jesus at his birth and where does this meeting take place?',
-		answer: 'The three wise men, in a stable'
-	},
-	{
-		question:
-			'By what name is Paul of Tarsus known before he begins his missionary activity?',
+		question: 'What was Paul’s name before he began preaching the gospel?',
 		answer: 'Saul'
-	},
-	{
-		question:
-			'According to Paul’s formulation in 1 Corinthians, which is the greatest of the imperishable qualities?',
-		answer: 'Love'
 	},
 	{
 		question: 'Who is the high priest of Jerusalem who put Jesus on trial?',
@@ -351,22 +303,16 @@ export const general = [
 	},
 	{
 		question:
-			'In the Gospel According to John, which of the apostles doubts Jesus’s resurrection until he sees Jesus with his own eyes?',
+			'Who doubted Jesus’s resurrection until he saw Jesus with his own eyes?',
 		answer: 'Thomas'
 	},
 	{
 		question:
-			'According to the Gospel of Matthew, where does Jesus’s first public sermon take place?',
-		answer: 'On the mount'
+			'For whom does Mary Magdalene mistake Jesus in his first resurrection appearance?',
+		answer: 'The gardener'
 	},
 	{
-		question:
-			'In the Gospel of John, for whom does Mary Magdalene mistake Jesus in his first resurrection appearance?',
-		answer: 'Mary Magdalene'
-	},
-	{
-		question:
-			'How does Judas signal Jesus’s identity to the Roman officials?',
+		question: 'How did Judas identify Jesus to the Roman officials?',
 		answer: 'He kisses him.'
 	},
 	{
@@ -374,31 +320,12 @@ export const general = [
 		answer: 'Herod Antipas'
 	},
 	{
-		question:
-			'When Christians observe Palm Sunday, what biblical narrative are they celebrating?',
+		question: 'What do we remember on Palm Sunday?',
 		answer: 'Jesus’s entry into Jerusalem before his death'
 	},
 	{
-		question:
-			'According to the Gospels, what is the unique literary genre Jesus employs to preach his message?',
-		answer: 'The parable'
-	},
-	{
-		question:
-			'Which Gospel is most concerned with the mystery and identity of the person of Jesus?',
-		answer: 'John'
-	},
-	{
 		question: 'Who baptizes Jesus?',
-		answer: 'John the Baptizer'
-	},
-	{
-		question: 'Who takes Jesus’s body off the cross?',
-		answer: 'Joseph of Arimathea'
-	},
-	{
-		question: 'Who is the first apostle to deny Jesus?',
-		answer: 'Peter'
+		answer: 'John the Baptist'
 	},
 	{
 		question: 'Which Gospel is written by a doctor?',
@@ -447,7 +374,7 @@ export const general = [
 		answer: 'Paul'
 	},
 	{
-		question: 'What is the collective name of the stories Jesus told?',
+		question: 'Jesus told what kind of stories?',
 		answer: 'Parables'
 	},
 	{
@@ -497,16 +424,12 @@ export const general = [
 		answer: '39'
 	},
 	{
-		question: 'In what language was the Old Testament written?',
+		question: 'In what language is the Old Testament written?',
 		answer: 'Hebrew'
 	},
 	{
-		question: 'What relation was Jacob to Abraham?',
-		answer: 'Grandson'
-	},
-	{
-		question: 'How many sons did Jacob (Israel) have?',
-		answer: '12 – They formed the basis for the tribes of Israel.'
+		question: 'In what languages is the New Testament written?',
+		answer: 'Greek and Aramaic'
 	},
 	{
 		question:
@@ -520,7 +443,7 @@ export const general = [
 	},
 	{
 		question:
-			'On which day of the year could the High Priest enter the Holiest Place, the inner most part of the temple where the covenant box was kept?',
+			'On which day of the year could the High Priest enter the Holy of Holies in the Temple?',
 		answer: 'Day of Atonement'
 	},
 	{
@@ -529,49 +452,12 @@ export const general = [
 		answer: 'Judah'
 	},
 	{
-		question:
-			'Who was king of the southern kingdom when the northern kingdom of Israel fell to Assyria?',
-		answer: 'Hezekiah'
-	},
-	{
-		question:
-			'The southern kingdom eventually fell also, but to which great power?',
-		answer: 'Babylon'
-	},
-	{
-		question:
-			'After the exile, the Israelites returned and started to rebuild the temple in Jerusalem, but which other prophet along with Zechariah was sent to encourage the completion of the partly built temple?',
-		answer: 'Haggai'
-	},
-	{
 		question: 'One title of God is El Shaddai, which means what?',
 		answer: 'Almighty God'
 	},
 	{
-		question:
-			'Which king had the longest reign over the Kingdom of Israel?',
-		answer: 'Jeroboam II'
-	},
-	{
 		question: 'What does Israel mean?',
 		answer: 'Prevails with God'
-	},
-	{
-		question: 'In which prophecy do we read about the valley of dry bones?',
-		answer: 'Ezekiel'
-	},
-	{
-		question: 'How were sins forgiven in the Old Testament?',
-		answer: 'Animal sacrifice'
-	},
-	{
-		question:
-			'What is the name commonly given to the first five books of the Old Testament?',
-		answer: 'Pentateuch'
-	},
-	{
-		question: 'Who wrote the first five books of the Old Testament?',
-		answer: 'Moses'
 	},
 	{
 		question: 'What time period does the Old Testament cover?',
@@ -580,10 +466,6 @@ export const general = [
 	{
 		question: 'From which part of Adam’s body did God create Eve?',
 		answer: 'Rib'
-	},
-	{
-		question: 'What was the first bird that Noah let out of the ark?',
-		answer: 'Raven'
 	},
 	{
 		question: 'What was the name of Abraham’s nephew?',
@@ -596,25 +478,12 @@ export const general = [
 	},
 	{
 		question:
-			'What did Rachel steal from her father, Laban, when she left home with her husband Jacob?',
-		answer: 'Laban’s household gods'
-	},
-	{
-		question: 'What was the name of Joseph’s youngest brother?',
-		answer: 'Benjamin'
-	},
-	{
-		question:
 			'When Joseph was in prison, whose dream did he correctly interpret to mean he would be restored to his job?',
 		answer: 'Butler'
 	},
 	{
 		question: 'In what was baby Moses hidden?',
 		answer: 'An ark of bulrushes'
-	},
-	{
-		question: 'What was the first plague the Lord sent on Egypt?',
-		answer: 'Water turned into blood'
 	},
 	{
 		question: 'On what mountain did Moses receive the law from God?',
@@ -634,10 +503,6 @@ export const general = [
 		answer: 'Trumpets, pitchers, and lamps'
 	},
 	{
-		question: 'Which judge was betrayed to the Philistines by a woman?',
-		answer: 'Samson'
-	},
-	{
 		question: 'Who did Samuel anoint as the first King of Israel?',
 		answer: 'Saul'
 	},
@@ -651,12 +516,7 @@ export const general = [
 	},
 	{
 		question: 'What was Cain’s punishment for the murder of Abel?',
-		answer:
-			'He was banned from his occupation and made a restless wanderer on the earth.'
-	},
-	{
-		question: 'What was the secret of Samson’s great strength?',
-		answer: 'He would lose his strength if his hair were cut.'
+		answer: 'He was made a restless wanderer on the earth.'
 	},
 	{
 		question: 'What did Joseph’s brothers do to Joseph?',
@@ -675,13 +535,8 @@ export const general = [
 		answer: 'Samuel'
 	},
 	{
-		question: 'How did the Jewish prophet Daniel end up in Babylon?',
-		answer: 'He was taken captive in a raid by the Babylonian army.'
-	},
-	{
 		question: 'Why does Cain kill his brother Abel?',
-		answer:
-			'Because God is more pleased by Abel’s sacrifice than by Cain’s.'
+		answer: 'Because God was pleased by Abel’s sacrifice and not Cain’s.'
 	},
 	{
 		question:
@@ -698,12 +553,12 @@ export const general = [
 	},
 	{
 		question:
-			'What object that God gives Moses allows him to perform signs and wonders?',
+			'What object did God give to Moses to perform signs and wonders?',
 		answer: 'A wooden staff'
 	},
 	{
 		question: 'How does God feed the Israelites in the desert?',
-		answer: 'By a strange bread-like substance from heaven'
+		answer: 'Mana'
 	},
 	{
 		question:
@@ -721,45 +576,17 @@ export const general = [
 		answer: 'Intermarry with the native inhabitants'
 	},
 	{
-		question: 'Who betrays Samson to the Philistines?',
-		answer: 'Delilah'
-	},
-	{
-		question:
-			'What does David bring to Jerusalem to bless the religious city?',
-		answer: 'The Ark of the Covenant'
-	},
-	{
-		question:
-			'What event triggers the division of Israel into two kingdoms?',
-		answer:
-			'Rehoboam wants the tribe of Judah to secede from the twelve tribes.'
-	},
-	{
 		question: 'Who is Elisha?',
 		answer: 'Elijah’s apprentice and successor'
 	},
 	{
 		question:
 			'What do the deaths of King Ahab and his wife Jezebel have in common?',
-		answer: 'Dogs eat the blood of their dead bodies.'
+		answer: 'Dogs eat their blood.'
 	},
 	{
 		question: 'Which Jewish festival results from the events in Esther?',
 		answer: 'Purim'
-	},
-	{
-		question: 'What does King Solomon do in Israel?',
-		answer: 'He builds a grand temple in Jerusalem.'
-	},
-	{
-		question:
-			'What is one of the main criteria in Leviticus for living in the Israelite camp?',
-		answer: 'To be ceremonially clean'
-	},
-	{
-		question: 'Why does God reprimand Job?',
-		answer: 'Because Job heeds the advice of his friends'
 	},
 	{
 		question: 'What did King Solomon ask for from God?',
@@ -769,10 +596,6 @@ export const general = [
 		question:
 			'Who wrote this line “The Lord is my Shepherd, I shall not want”?',
 		answer: 'King David'
-	},
-	{
-		question: 'What does “Eve” mean?',
-		answer: '“mother of all living”'
 	},
 	{
 		question: 'Who married Abraham?',
@@ -792,37 +615,13 @@ export const general = [
 		answer: 'Hannah'
 	},
 	{
-		question: 'Who was David’s original wife?',
-		answer: 'Michal'
-	},
-	{
 		question:
 			'This woman remained with her mother-in-law, Naomi, after Naomi’s husband and sons died.',
 		answer: 'Ruth'
 	},
-	// {
-	//   question:
-	//     "This woman rumored that Joseph tried to commit adultery with her.",
-	//   answer: "Potiphar’s wife"
-	// },
-	{
-		question:
-			'This harlot housed spies sent by Joshua to take the city of Jericho.',
-		answer: 'Rahab'
-	},
 	{
 		question: 'This woman married Moses.',
 		answer: 'Zipporah'
-	},
-	// {
-	// 	question:
-	// 		'After David looked upon her lustfully, he had an affair with this woman that ultimately led to the death of her original husband.',
-	// 	answer: 'Bathsheba'
-	// },
-	{
-		question:
-			'This woman tempted Samson to reveal the secret to his massive strength, which she used to betray him to the Philistines.',
-		answer: 'Delilah'
 	},
 	{
 		question:
@@ -834,11 +633,6 @@ export const general = [
 			'This woman was given to Jacob as a wife deceitfully before he could marry her younger sister.',
 		answer: 'Leah'
 	},
-	// {
-	//   question:
-	//     "The prophet Hosea was commanded to marry this woman, though she was a harlot.",
-	//   answer: "Gomer"
-	// },
 	{
 		question:
 			'This Egyptian woman was Sarah’s handmaiden, and bore Ishmael through Abraham.',
@@ -849,37 +643,13 @@ export const general = [
 		answer: 'Jezebel'
 	},
 	{
-		question: 'This woman gave birth to Moses.',
-		answer: 'Jochebed'
-	},
-	{
 		question:
 			'This woman was turned into a pillar of salt because she looked back as Sodom and Gomorrah were being destroyed.',
 		answer: 'Lot’s wife'
 	},
 	{
-		question: 'This woman was Ruth’s sister-in-law.',
-		answer: 'Orpah'
-	},
-	{
-		question: 'What was the first thing that God created?',
-		answer: 'Light'
-	},
-	{
-		question: 'Which day did God create plants?',
-		answer: 'Third'
-	},
-	{
 		question: 'What was the boat Noah built called?',
-		answer: 'An ark'
-	},
-	{
-		question: 'How many of each type of animal did Noah have on the ark?',
-		answer: 'Two'
-	},
-	{
-		question: 'What is the symbol of God’s promise to Noah?',
-		answer: 'The rainbow'
+		answer: 'The ark'
 	},
 	{
 		question: 'Who received the 10 commandments from God?',
@@ -903,20 +673,11 @@ export const general = [
 		answer: 'Joseph'
 	},
 	{
-		question:
-			'Who was thrown into a lions’ den by King Darius? This person prayed to God three times a day.',
-		answer: 'Daniel'
-	},
-	{
-		question: 'This young boy defeated a giant.',
-		answer: 'David'
-	},
-	{
 		question: 'This prophet was swallowed by a fish.',
 		answer: 'Jonah'
 	},
 	{
-		question: 'Who was the Son of God?',
+		question: 'Who is the Son of God?',
 		answer: 'Jesus'
 	},
 	{
@@ -936,19 +697,7 @@ export const general = [
 		answer: 'Jesus wept'
 	},
 	{
-		question: 'How many disciples or apostles did Jesus have?',
-		answer: 'Twelve'
-	},
-	{
 		question: 'Which of the apostles betrayed Jesus?',
 		answer: 'Judas'
-	},
-	{
-		question: 'What is another name for the Sermon on the Mount?',
-		answer: 'The beatitudes'
-	},
-	{
-		question: 'What was the name of the Sea where Jesus calmed a storm?',
-		answer: 'The Sea of Galilee'
 	}
 ];

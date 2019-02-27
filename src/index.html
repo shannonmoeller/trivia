@@ -3,7 +3,8 @@
 <head>
 
 	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=0,viewport-fit=cover,width=device-width" />
+	<link rel="manifest" href="/manifest.json" />
 
 	<title>Trivia</title>
 
@@ -23,12 +24,18 @@
 		<div class="trivia-answer" trivia-app-answer></div>
 
 		<trivia-players class="trivia-players">
-			<label class="trivia-player">
-				Clara <input type="number" name="clara" value="0" step="1" />
-			</label>
-			<label class="trivia-player">
-				Alan <input type="number" name="alan" value="0" step="1" />
-			</label>
+			<trivia-player class="trivia-player">
+				<span class="trivia-player-name">Clara</span>
+				<button name="decrement">-</button>
+				<input type="number" value="0" step="1" />
+				<button name="increment">+</button>
+			</trivia-player>
+			<trivia-player class="trivia-player">
+				<span class="trivia-player-name">Alan</span>
+				<button name="decrement">-</button>
+				<input type="number" value="0" step="1" />
+				<button name="increment">+</button>
+			</trivia-player>
 		</trivia-players>
 
 		<div class="trivia-actions">

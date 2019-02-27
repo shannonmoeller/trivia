@@ -76,10 +76,18 @@ class TriviaAppElement extends HTMLElement {
 		this.answerElement.innerHTML = '';
 	}
 
+	increment(target) {
+		target.previousElementSibling.value++;
+	}
+
 	incrementPlayer(index) {
 		const playerInputs = this.querySelectorAll('input[type="number"]');
 
 		playerInputs[index].value++;
+	}
+
+	decrement(target) {
+		target.nextElementSibling.value--;
 	}
 
 	decrementPlayer(index) {
@@ -88,11 +96,11 @@ class TriviaAppElement extends HTMLElement {
 		playerInputs[index].value--;
 	}
 
-	onClick(event) {
-		const { name } = event.target;
+	onClick({ target }) {
+		const { name } = target;
 
 		if (typeof this[name] === 'function') {
-			this[name](event);
+			this[name](target);
 		}
 	}
 
