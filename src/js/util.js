@@ -16,16 +16,17 @@ export function getDayOfWeek() {
 	return new Date().getDay();
 }
 
-export function getRandomInt(max) {
-	return Math.floor(Math.random() * (max + 1));
+export function getRandomInt(min, max) {
+	return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 export function shuffleArray(array) {
 	const clone = array.slice();
 	let i = clone.length;
 
-	while (i--) {
-		const j = getRandomInt(i + 1);
+	while (i) {
+		const j = getRandomInt(0, i--);
+
 		[clone[i], clone[j]] = [clone[j], clone[i]];
 	}
 

@@ -1,71 +1,69 @@
-import { review, general } from './questions.js';
-
+import { createTriviaStore } from './trivia-store.js';
 import {
 	WEDNESDAY,
 	THURSDAY,
 	getDayOfWeek,
 	getDayOfYear,
-	shuffleArray
+	shuffleArray,
 } from './util.js';
 
-const a = [].concat(review, shuffleArray(general));
-const b = [];
+const version = import.meta.url.split('?').pop();
+const store = createTriviaStore(version);
+const defaultMessages = {
+	[WEDNESDAY]: 'Stump Day!',
+	[THURSDAY]: 'Thanks Day!',
+};
+
+function onActionClick(event) {
+	const { target } = event;
+	const { name } = target || {};
+
+	if (name && typeof this[name] === 'function') {
+		event.preventDefault();
+		this[name](target);
+	}
+}
 
 class TriviaAppElement extends HTMLElement {
 	constructor() {
 		super();
 
-		this.addEventListener('click', this.onClick);
-		this.addEventListener('keydown', this.onKeyDown);
+		this.defaultMessage = defaultMessages[getDayOfWeek()] || '';
+		this.askQuestion = this.askQuestion.bind(this);
+
+		this.addEventListener('click', onActionClick);
 	}
 
 	connectedCallback() {
-		this.setAttribute('tabindex', '0');
-		this.focus();
-
 		this.questionElement = this.querySelector('[trivia-app-question]');
 		this.answerElement = this.querySelector('[trivia-app-answer]');
+		this.removeStoreListener = store.addListener(this.askQuestion);
 
-		switch (getDayOfWeek()) {
-			case WEDNESDAY:
-				this.questionElement.innerHTML = 'Stump Day!';
-				break;
+		this.askQuestion();
+	}
 
-			case THURSDAY:
-				this.questionElement.innerHTML = 'Thanks Day!';
-				break;
-		}
+	disconnectedCallback() {
+		this.removeStoreListener();
 	}
 
 	prevQuestion() {
-		const prev = b.shift();
-
-		if (prev) {
-			a.unshift(prev);
-		}
-
-		this.askQuestion();
+		store.prevQuestion();
 	}
 
 	nextQuestion() {
-		const next = a.shift();
-
-		if (next) {
-			b.unshift(next);
-		}
-
-		this.askQuestion();
+		store.nextQuestion();
 	}
 
 	askQuestion() {
-		const { question } = b[0] || {};
+		const { defaultMessage } = this;
+		const { question } = store.getQuestion() || {};
 
-		this.questionElement.innerHTML = question || '';
+		this.questionElement.innerHTML = question || defaultMessage;
 		this.answerElement.innerHTML = '';
 	}
 
 	answerQuestion() {
-		const { question, answer } = b[0] || {};
+		const { question, answer } = store.getQuestion() || {};
 
 		this.questionElement.innerHTML = question || '';
 		this.answerElement.innerHTML = answer || '';
@@ -74,78 +72,6 @@ class TriviaAppElement extends HTMLElement {
 	hideQuestion() {
 		this.questionElement.innerHTML = '';
 		this.answerElement.innerHTML = '';
-	}
-
-	increment(target) {
-		target.previousElementSibling.value++;
-	}
-
-	incrementPlayer(index) {
-		const playerInputs = this.querySelectorAll('input[type="number"]');
-
-		playerInputs[index].value++;
-	}
-
-	decrement(target) {
-		target.nextElementSibling.value--;
-	}
-
-	decrementPlayer(index) {
-		const playerInputs = this.querySelectorAll('input[type="number"]');
-
-		playerInputs[index].value--;
-	}
-
-	onClick({ target }) {
-		const { name } = target;
-
-		if (typeof this[name] === 'function') {
-			this[name](target);
-		}
-	}
-
-	onKeyDown({ key, target }) {
-		if (target !== this) {
-			return;
-		}
-
-		switch (key) {
-			case 'ArrowLeft':
-				this.prevQuestion();
-				break;
-
-			case 'ArrowRight':
-				this.nextQuestion();
-				break;
-
-			case 'q':
-				this.askQuestion();
-				break;
-
-			case 'a':
-				this.answerQuestion();
-				break;
-
-			case 'x':
-				this.hideQuestion();
-				break;
-
-			case '1':
-				this.incrementPlayer(0);
-				break;
-
-			case '!':
-				this.decrementPlayer(0);
-				break;
-
-			case '2':
-				this.incrementPlayer(1);
-				break;
-
-			case '@':
-				this.decrementPlayer(1);
-				break;
-		}
 	}
 }
 
@@ -162,5 +88,42 @@ class TriviaPlayersElement extends HTMLElement {
 	}
 }
 
-customElements.define('trivia-players', TriviaPlayersElement);
+class TriviaPlayerElement extends HTMLElement {
+	constructor() {
+		super();
+
+		this.update = this.update.bind(this);
+
+		this.addEventListener('click', onActionClick);
+	}
+
+	connectedCallback() {
+		this.name = this.getAttribute('name');
+		this.inputElement = this.querySelector('input');
+		this.removeStoreListener = store.addListener(this.update);
+
+		this.update(store.get());
+	}
+
+	disconnectedCallback() {
+		this.removeStoreListener();
+	}
+
+	incrementScore() {
+		store.incrementScore(this.name);
+	}
+
+	decrementScore() {
+		store.decrementScore(this.name);
+	}
+
+	update(state) {
+		const { inputElement, name } = this;
+
+		inputElement.value = state.scores[name];
+	}
+}
+
 customElements.define('trivia-app', TriviaAppElement);
+customElements.define('trivia-players', TriviaPlayersElement);
+customElements.define('trivia-player', TriviaPlayerElement);
