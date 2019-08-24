@@ -4,5 +4,12 @@
   "background_color": "#000000",
   "display": "standalone",
   "orientation": "portrait",
-  "start_url": "/"
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "img/icon.svg",
+      "sizes": "all",
+      "type": "image/svg+xml"
+    }
+  ]
 }

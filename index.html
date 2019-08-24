@@ -1,51 +1,42 @@
 <!doctype html>
-<html lang="en">
-<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width" />
+<link rel="manifest" href="/manifest.json" />
 
-	<meta charset="utf-8" />
-	<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=0,viewport-fit=cover,width=device-width" />
-	<link rel="manifest" href="/manifest.json?v6" />
+<title>Trivia</title>
 
-	<title>Trivia</title>
+<script type="module">
+	import './js/index.js';
+</script>
 
-	<script type="module">
-		import './js/main.js?v6';
-	</script>
+<style>
+	@import './css/index.css';
+</style>
 
-	<style>
-		@import './css/main.css?v6';
-	</style>
+<trivia-app class="trivia">
+	<div class="trivia-question" trivia-app-question></div>
+	<div class="trivia-answer" trivia-app-answer></div>
 
-</head>
-<body>
+	<trivia-players class="trivia-players">
+		<trivia-player class="trivia-player" name="clara">
+			<span class="trivia-player-name">Clara</span>
+			<button name="decrementScore">-</button>
+			<input type="number" value="0" step="1" />
+			<button name="incrementScore">+</button>
+		</trivia-player>
+		<trivia-player class="trivia-player" name="alan">
+			<span class="trivia-player-name">Alan</span>
+			<button name="decrementScore">-</button>
+			<input type="number" value="0" step="1" />
+			<button name="incrementScore">+</button>
+		</trivia-player>
+	</trivia-players>
 
-	<trivia-app class="trivia">
-		<div class="trivia-question" trivia-app-question></div>
-		<div class="trivia-answer" trivia-app-answer></div>
-
-		<trivia-players class="trivia-players">
-			<trivia-player class="trivia-player" name="clara">
-				<span class="trivia-player-name">Clara</span>
-				<button name="decrementScore">-</button>
-				<input type="number" value="0" step="1" />
-				<button name="incrementScore">+</button>
-			</trivia-player>
-			<trivia-player class="trivia-player" name="alan">
-				<span class="trivia-player-name">Alan</span>
-				<button name="decrementScore">-</button>
-				<input type="number" value="0" step="1" />
-				<button name="incrementScore">+</button>
-			</trivia-player>
-		</trivia-players>
-
-		<div class="trivia-actions">
-			<button name="prevQuestion">←</button>
-			<button name="hideQuestion">X</button>
-			<button name="askQuestion">Q</button>
-			<button name="answerQuestion">A</button>
-			<button name="nextQuestion">→</button>
-		</div>
-	</trivia-app>
-
-</body>
-</html>
+	<div class="trivia-actions">
+		<button name="prevQuestion">←</button>
+		<button name="hideQuestion">X</button>
+		<button name="askQuestion">Q</button>
+		<button name="answerQuestion">A</button>
+		<button name="nextQuestion">→</button>
+	</div>
+</trivia-app>
