@@ -6,6 +6,6 @@
   "orientation": "portrait",
   "start_url": "/",
   "icons": [{
-    "src": "img/icon.svg"
+    "src": "img/icon.svg?v7"
   }]
 }
