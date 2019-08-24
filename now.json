@@ -1,6 +1,12 @@
 {
   "version": 2,
   "name": "trivia-shannonmoeller",
+  "builds": [
+    {
+      "src": "src/**",
+      "use": "@now/static"
+    }
+  ],
   "routes": [
     {
       "src": "/(.*)",
