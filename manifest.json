@@ -5,11 +5,7 @@
   "display": "standalone",
   "orientation": "portrait",
   "start_url": "/",
-  "icons": [
-    {
-      "src": "img/icon.svg",
-      "sizes": "all",
-      "type": "image/svg+xml"
-    }
-  ]
+  "icons": [{
+    "src": "img/icon.svg"
+  }]
 }
