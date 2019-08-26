@@ -20,13 +20,8 @@ function Player(initialState) {
 		elName.textContent = state.name;
 		elScore.value = state.score;
 
-		btnDecrement.onclick = () => {
-			store.decrementScore(state.id);
-		};
-
-		btnIncrement.onclick = () => {
-			store.incrementScore(state.id);
-		};
+		btnDecrement.onclick = () => store.decrementScore(state.id);
+		btnIncrement.onclick = () => store.incrementScore(state.id);
 	};
 
 	root.update(initialState);
