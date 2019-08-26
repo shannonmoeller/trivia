@@ -1,4 +1,5 @@
 {
   "version": 2,
-  "name": "trivia-shannonmoeller"
+  "name": "trivia-shannonmoeller",
+  "public": true
 }

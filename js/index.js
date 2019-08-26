@@ -1,129 +1,93 @@
-import { createTriviaStore } from './trivia-store.js';
-import {
-	WEDNESDAY,
-	THURSDAY,
-	getDayOfWeek,
-	getDayOfYear,
-	shuffleArray,
-} from './util.js';
+import { html, refs, repeat } from './vendor.js';
+import { createTriviaStore } from './store.js';
 
-const version = import.meta.url.split('?').pop();
-const store = createTriviaStore(version);
-const defaultMessages = {
-	[WEDNESDAY]: 'Stump Day!',
-	[THURSDAY]: 'Thanks Day!',
-};
+const store = createTriviaStore();
 
-function onActionClick(event) {
-	const { target } = event;
-	const { name } = target || {};
+const playerTemplate = html`
+	<li ref="root" class="trivia-player">
+		<span ref="elName" class="trivia-player-name"></span>
+		<button ref="btnDecrement">-</button>
+		<input ref="elScore" type="number" value="0" readonly />
+		<button ref="btnIncrement">+</button>
+	</li>
+`;
 
-	if (name && typeof this[name] === 'function') {
-		event.preventDefault();
-		this[name](target);
-	}
+function Player(initialState) {
+	const view = playerTemplate();
+	const { root, elName, elScore, btnDecrement, btnIncrement } = refs(view);
+
+	root.update = (state) => {
+		elName.textContent = state.name;
+		elScore.value = state.score;
+
+		btnDecrement.onclick = () => {
+			store.decrementScore(state.id);
+		};
+
+		btnIncrement.onclick = () => {
+			store.incrementScore(state.id);
+		};
+	};
+
+	root.update(initialState);
+
+	return root;
 }
 
-class TriviaAppElement extends HTMLElement {
-	constructor() {
-		super();
+const appTemplate = html`
+	<div ref="root" class="trivia">
+		<div ref="elQuestion" class="trivia-question"></div>
+		<div ref="elAnswer" class="trivia-answer"></div>
+		<ol ref="elPlayers" class="trivia-players"></ol>
+		<div class="trivia-actions">
+			<button ref="btnPrev">←</button>
+			<button ref="btnHide">X</button>
+			<button ref="btnQuestion">Q</button>
+			<button ref="btnAnswer">A</button>
+			<button ref="btnNext">→</button>
+		</div>
+	</div>
+`;
 
-		this.defaultMessage = defaultMessages[getDayOfWeek()] || '';
-		this.askQuestion = this.askQuestion.bind(this);
+function App() {
+	const view = appTemplate();
+	const {
+		root,
+		elQuestion,
+		elAnswer,
+		elPlayers,
+		btnPrev,
+		btnHide,
+		btnQuestion,
+		btnAnswer,
+		btnNext,
+	} = refs(view);
 
-		this.addEventListener('click', onActionClick);
-	}
+	root.update = (state) => {
+		const { index, questions, showQuestion, showAnswer, players } = state;
+		const currentQuestion = questions[index];
 
-	connectedCallback() {
-		this.questionElement = this.querySelector('[trivia-app-question]');
-		this.answerElement = this.querySelector('[trivia-app-answer]');
-		this.removeStoreListener = store.addListener(this.askQuestion);
+		elQuestion.textContent = showQuestion ? currentQuestion.question : '';
+		elAnswer.textContent = showAnswer ? currentQuestion.answer : '';
 
-		this.askQuestion();
-	}
-
-	disconnectedCallback() {
-		this.removeStoreListener();
-	}
-
-	prevQuestion() {
-		store.prevQuestion();
-	}
-
-	nextQuestion() {
-		store.nextQuestion();
-	}
-
-	askQuestion() {
-		const { defaultMessage } = this;
-		const { question } = store.getQuestion() || {};
-
-		this.questionElement.innerHTML = question || defaultMessage;
-		this.answerElement.innerHTML = '';
-	}
-
-	answerQuestion() {
-		const { question, answer } = store.getQuestion() || {};
-
-		this.questionElement.innerHTML = question || '';
-		this.answerElement.innerHTML = answer || '';
-	}
-
-	hideQuestion() {
-		this.questionElement.innerHTML = '';
-		this.answerElement.innerHTML = '';
-	}
-}
-
-class TriviaPlayersElement extends HTMLElement {
-	connectedCallback() {
-		const children = Array.from(this.children);
-		const whoFirst = getDayOfYear() % children.length;
-
-		children.forEach((child, i) => {
-			if (i < whoFirst) {
-				this.appendChild(child);
-			}
+		repeat({
+			parent: elPlayers,
+			items: players,
+			key: 'id',
+			create: Player,
+			update: (el, item) => el.update(item),
 		});
-	}
+	};
+
+	btnPrev.onclick = store.prev;
+	btnHide.onclick = store.hideQuestion;
+	btnQuestion.onclick = store.showQuestion;
+	btnAnswer.onclick = store.showAnswer;
+	btnNext.onclick = store.next;
+
+	store.subscribe(root.update);
+
+	return root;
 }
 
-class TriviaPlayerElement extends HTMLElement {
-	constructor() {
-		super();
-
-		this.update = this.update.bind(this);
-
-		this.addEventListener('click', onActionClick);
-	}
-
-	connectedCallback() {
-		this.name = this.getAttribute('name');
-		this.inputElement = this.querySelector('input');
-		this.removeStoreListener = store.addListener(this.update);
-
-		this.update(store.get());
-	}
-
-	disconnectedCallback() {
-		this.removeStoreListener();
-	}
-
-	incrementScore() {
-		store.incrementScore(this.name);
-	}
-
-	decrementScore() {
-		store.decrementScore(this.name);
-	}
-
-	update(state) {
-		const { inputElement, name } = this;
-
-		inputElement.value = state.scores[name];
-	}
-}
-
-customElements.define('trivia-app', TriviaAppElement);
-customElements.define('trivia-players', TriviaPlayersElement);
-customElements.define('trivia-player', TriviaPlayerElement);
+document.body.append(App());
