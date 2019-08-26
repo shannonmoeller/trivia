@@ -48,24 +48,22 @@ export function getDayOfYear() {
 	return Math.floor(diff / DAY);
 }
 
-export function getRandomInt(min, max) {
-	return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
 export function rotate(array, count) {
 	const index = count % array.length;
+	const a = array.slice(index);
+	const b = array.slice(0, index);
 
-	return array.slice(index).concat(array.slice(0, index));
+	return a.concat(b);
 }
 
 export function shuffle(array) {
 	const clone = array.slice();
-	let i = clone.length;
+	let a = clone.length;
 
-	while (i) {
-		const j = getRandomInt(0, i--);
+	while (a > 0) {
+		const b = Math.floor(Math.random() * a--);
 
-		[clone[i], clone[j]] = [clone[j], clone[i]];
+		[clone[a], clone[b]] = [clone[b], clone[a]];
 	}
 
 	return clone;

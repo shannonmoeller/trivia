@@ -1,4 +1,4 @@
-export const review = [
+export const reviewQuestions = [
 	{
 		question: `List the days of creation.`,
 		answer: ``,
@@ -25,7 +25,7 @@ export const review = [
 	},
 ];
 
-export const general = [
+export const generalQuestions = [
 	/* From trivia time */
 	{
 		question: `Who were the first man and woman?`,

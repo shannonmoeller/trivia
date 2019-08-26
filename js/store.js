@@ -1,5 +1,5 @@
 import { createStore } from './vendor.js';
-import { review, general } from './questions.js';
+import { reviewQuestions, generalQuestions } from './questions.js';
 import {
 	WEDNESDAY,
 	THURSDAY,
@@ -15,7 +15,7 @@ const INTROS = {
 	[THURSDAY]: 'Thanks day!',
 };
 
-function createGame() {
+export function createTriviaGame() {
 	const intro = {
 		question: INTROS[getDayOfWeek()] || '',
 		answer: '',
@@ -38,14 +38,14 @@ function createGame() {
 		index: 0,
 		showQuestion: true,
 		showAnswer: false,
-		questions: [intro, ...review, ...shuffle(general)],
+		questions: [intro, ...reviewQuestions, ...shuffle(generalQuestions)],
 		players: rotate(players, getDayOfYear()),
 	};
 }
 
 export function createTriviaStore() {
 	const storage = createStorage('trivia', 1);
-	const store = createStore(storage.get() || createGame());
+	const store = createStore(storage.get() || createTriviaGame());
 
 	store.subscribe(storage.set);
 

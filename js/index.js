@@ -63,6 +63,12 @@ function App() {
 		btnNext,
 	} = refs(view);
 
+	btnPrev.onclick = store.prev;
+	btnHide.onclick = store.hideQuestion;
+	btnQuestion.onclick = store.showQuestion;
+	btnAnswer.onclick = store.showAnswer;
+	btnNext.onclick = store.next;
+
 	root.update = (state) => {
 		const { index, questions, showQuestion, showAnswer, players } = state;
 		const currentQuestion = questions[index];
@@ -78,12 +84,6 @@ function App() {
 			update: (el, item) => el.update(item),
 		});
 	};
-
-	btnPrev.onclick = store.prev;
-	btnHide.onclick = store.hideQuestion;
-	btnQuestion.onclick = store.showQuestion;
-	btnAnswer.onclick = store.showAnswer;
-	btnNext.onclick = store.next;
 
 	store.subscribe(root.update);
 
