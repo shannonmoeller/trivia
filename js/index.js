@@ -1,8 +1,6 @@
 import { html, refs, repeat } from './vendor.js';
 import { createTriviaStore } from './store.js';
 
-const store = createTriviaStore();
-
 const playerTemplate = html`
 	<li ref="root" class="trivia-player">
 		<span ref="elName" class="trivia-player-name"></span>
@@ -12,24 +10,24 @@ const playerTemplate = html`
 	</li>
 `;
 
-function Player(initialState) {
+function Player(store, props) {
 	const view = playerTemplate();
 	const { root, elName, elScore, btnDecrement, btnIncrement } = refs(view);
 
-	root.update = (state) => {
-		elName.textContent = state.name;
-		elScore.value = state.score;
+	root.update = (props) => {
+		elName.textContent = props.name;
+		elScore.value = props.score;
 
-		btnDecrement.onclick = () => store.decrementScore(state.id);
-		btnIncrement.onclick = () => store.incrementScore(state.id);
+		btnDecrement.onclick = () => store.decrementScore(props.name);
+		btnIncrement.onclick = () => store.incrementScore(props.name);
 	};
 
-	root.update(initialState);
+	root.update(props);
 
 	return root;
 }
 
-const appTemplate = html`
+const gameTemplate = html`
 	<div ref="root" class="trivia">
 		<div ref="elQuestion" class="trivia-question"></div>
 		<div ref="elAnswer" class="trivia-answer"></div>
@@ -44,8 +42,8 @@ const appTemplate = html`
 	</div>
 `;
 
-function App() {
-	const view = appTemplate();
+function Game(store, props) {
+	const view = gameTemplate();
 	const {
 		root,
 		elQuestion,
@@ -64,25 +62,34 @@ function App() {
 	btnAnswer.onclick = store.showAnswer;
 	btnNext.onclick = store.next;
 
-	root.update = (state) => {
-		const { index, questions, showQuestion, showAnswer, players } = state;
-		const currentQuestion = questions[index];
+	root.update = (props) => {
+		const { index, showQuestion, showAnswer, questions, players } = props;
+		const { question, answer } = questions[index];
 
-		elQuestion.textContent = showQuestion ? currentQuestion.question : '';
-		elAnswer.textContent = showAnswer ? currentQuestion.answer : '';
+		elQuestion.textContent = showQuestion ? question : '';
+		elAnswer.textContent = showAnswer ? answer : '';
 
 		repeat({
 			parent: elPlayers,
 			items: players,
-			key: 'id',
-			create: Player,
+			key: 'name',
+			create: (item) => Player(store, item),
 			update: (el, item) => el.update(item),
 		});
 	};
 
-	store.subscribe(root.update);
+	root.update(props);
 
 	return root;
 }
 
-document.body.append(App());
+function createTriviaGame() {
+	const store = createTriviaStore();
+	const game = Game(store, store.get());
+
+	store.subscribe(game.update);
+
+	return game;
+}
+
+document.body.append(createTriviaGame());

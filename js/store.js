@@ -23,12 +23,10 @@ export function createTriviaGame() {
 
 	const players = [
 		{
-			id: 'clara',
 			name: 'Clara',
 			score: 0,
 		},
 		{
-			id: 'alan',
 			name: 'Alan',
 			score: 0,
 		},
@@ -50,7 +48,7 @@ export function createTriviaStore() {
 	store.subscribe(storage.set);
 
 	return {
-		subscribe: store.subscribe,
+		...store,
 
 		prev() {
 			store.set((prev) => ({
@@ -94,11 +92,11 @@ export function createTriviaStore() {
 			}));
 		},
 
-		decrementScore(id) {
+		decrementScore(name) {
 			store.set((prev) => ({
 				...prev,
 				players: prev.players.map((player) => {
-					if (player.id !== id) {
+					if (player.name !== name) {
 						return player;
 					}
 
@@ -110,11 +108,11 @@ export function createTriviaStore() {
 			}));
 		},
 
-		incrementScore(id) {
+		incrementScore(name) {
 			store.set((prev) => ({
 				...prev,
 				players: prev.players.map((player) => {
-					if (player.id !== id) {
+					if (player.name !== name) {
 						return player;
 					}
 
