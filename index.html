@@ -1,8 +1,8 @@
 <!doctype html>
 <meta charset="utf-8" />
 <meta name="viewport" content="user-scalable=no,width=device-width" />
-<link rel="apple-touch-icon" type="image/png" href="/img/icon.png">
-<link rel="icon" type="image/png" href="/img/icon.png">
+<link rel="apple-touch-icon" type="image/png" href="/img/icon.png" />
+<link rel="icon" type="image/png" href="/img/icon.png" />
 <link rel="manifest" href="/manifest.json" />
 
 <title>Trivia</title>
@@ -14,3 +14,9 @@
 <style>
 	@import './css/index.css';
 </style>
+
+<script>
+	if ('serviceWorker' in navigator) {
+		navigator.serviceWorker.register('/service.js');
+	}
+</script>
