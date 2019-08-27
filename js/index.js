@@ -93,3 +93,9 @@ function createTriviaGame() {
 }
 
 document.body.append(createTriviaGame());
+
+window.addEventListener('load', () => {
+	if ('serviceWorker' in navigator) {
+		navigator.serviceWorker.register('/js/service.js');
+	}
+});
