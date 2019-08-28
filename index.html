@@ -9,14 +9,12 @@
 
 <script type="module">
 	import './js/index.js';
+
+	if ('serviceWorker' in navigator) {
+		navigator.serviceWorker.register('/service.js');
+	}
 </script>
 
 <style>
 	@import './css/index.css';
 </style>
-
-<script>
-	if ('serviceWorker' in navigator) {
-		navigator.serviceWorker.register('/service.js');
-	}
-</script>
