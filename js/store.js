@@ -42,7 +42,7 @@ export function createTriviaGame() {
 }
 
 export function createTriviaStore() {
-	const storage = createStorage('trivia', 1);
+	const storage = createStorage('trivia', 2);
 	const store = createStore(storage.get() || createTriviaGame());
 
 	store.subscribe(storage.set);
