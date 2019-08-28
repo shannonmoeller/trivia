@@ -1,4 +1,4 @@
-# Bible Trivia
+# trivia 🧐
 
 Trivia app for my kids.
 
