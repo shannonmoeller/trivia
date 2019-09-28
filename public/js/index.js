@@ -1,30 +1,13 @@
 import { html, refs, repeat } from './vendor.js';
 import { createTriviaStore } from './store.js';
 
-const playerTemplate = html`
-	<li ref="root" class="trivia-player">
-		<span ref="elName" class="trivia-player-name"></span>
-		<button ref="btnDecrement">-</button>
-		<input ref="elScore" type="number" value="0" readonly />
-		<button ref="btnIncrement">+</button>
-	</li>
-`;
+function App() {
+	const store = createTriviaStore();
+	const game = Game(store, store.get());
 
-function Player(store, props) {
-	const view = playerTemplate();
-	const { root, elName, elScore, btnDecrement, btnIncrement } = refs(view);
+	store.subscribe(game.update);
 
-	root.update = (props) => {
-		elName.textContent = props.name;
-		elScore.value = props.score;
-
-		btnDecrement.onclick = () => store.decrementScore(props.name);
-		btnIncrement.onclick = () => store.incrementScore(props.name);
-	};
-
-	root.update(props);
-
-	return root;
+	return game;
 }
 
 const gameTemplate = html`
@@ -83,13 +66,30 @@ function Game(store, props) {
 	return root;
 }
 
-function createTriviaGame() {
-	const store = createTriviaStore();
-	const game = Game(store, store.get());
+const playerTemplate = html`
+	<li ref="root" class="trivia-player">
+		<span ref="elName" class="trivia-player-name"></span>
+		<button ref="btnDecrement">-</button>
+		<input ref="elScore" type="number" value="0" readonly />
+		<button ref="btnIncrement">+</button>
+	</li>
+`;
 
-	store.subscribe(game.update);
+function Player(store, props) {
+	const view = playerTemplate();
+	const { root, elName, elScore, btnDecrement, btnIncrement } = refs(view);
 
-	return game;
+	root.update = (props) => {
+		elName.textContent = props.name;
+		elScore.value = props.score;
+
+		btnDecrement.onclick = () => store.decrementScore(props.name);
+		btnIncrement.onclick = () => store.incrementScore(props.name);
+	};
+
+	root.update(props);
+
+	return root;
 }
 
-document.body.append(createTriviaGame());
+document.body.append(App());
