@@ -1,20 +1,27 @@
 <!doctype html>
-<meta charset="utf-8" />
-<meta name="viewport" content="user-scalable=no,width=device-width" />
-<link rel="apple-touch-icon" type="image/png" href="/img/icon.png" />
-<link rel="icon" type="image/png" href="/img/icon.png" />
-<link rel="manifest" href="/manifest.json" />
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=0,width=device-width" />
+		<link rel="apple-touch-icon" type="image/png" href="/img/icon.png" />
+		<link rel="icon" type="image/png" href="/img/icon.png" />
+		<link rel="manifest" href="/manifest.json" />
 
-<title>Trivia</title>
+		<title>Trivia</title>
 
-<script type="module">
-	import './js/index.js';
+		<script type="module">
+			import './js/index.js';
 
-	if ('serviceWorker' in navigator) {
-		navigator.serviceWorker.register('/service.js');
-	}
-</script>
+			if ('serviceWorker' in navigator) {
+				navigator.serviceWorker.register('/service.js');
+			}
+		</script>
 
-<style>
-	@import './css/index.css';
-</style>
+		<style>
+			@import './css/index.css';
+		</style>
+	</head>
+
+	<body>
+	</body>
+</html>
