@@ -1,27 +1,31 @@
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=0,width=device-width" />
-		<link rel="apple-touch-icon" type="image/png" href="/img/icon.png" />
-		<link rel="icon" type="image/png" href="/img/icon.png" />
-		<link rel="manifest" href="/manifest.json" />
+<head>
 
-		<title>Trivia</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=0,width=device-width" />
+	<link rel="apple-touch-icon" type="image/png" href="/img/icon.png" />
+	<link rel="icon" type="image/png" href="/img/icon.png" />
+	<link rel="manifest" href="/manifest.json" />
 
-		<script type="module">
-			import './js/index.js';
+	<title>Trivia</title>
 
-			if ('serviceWorker' in navigator) {
-				navigator.serviceWorker.register('/service.js');
-			}
-		</script>
+	<script type="module">
+		import './js/index.js';
 
-		<style>
-			@import './css/index.css';
-		</style>
-	</head>
+		if ('serviceWorker' in navigator) {
+			navigator.serviceWorker.register('/service.js');
+		}
+	</script>
 
-	<body>
-	</body>
+	<style>
+		@import './css/index.css';
+	</style>
+
+</head>
+<body>
+
+	<noscript>Trivia</noscript>
+
+</body>
 </html>

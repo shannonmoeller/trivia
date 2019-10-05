@@ -3,9 +3,7 @@ import { createTriviaStore } from './store.js';
 
 function App() {
 	const store = createTriviaStore();
-	const game = Game(store, store.get());
-
-	store.subscribe(game.update);
+	const game = Game(store);
 
 	return game;
 }
@@ -25,7 +23,7 @@ const gameTemplate = html`
 	</div>
 `;
 
-function Game(store, props) {
+function Game(store) {
 	const view = gameTemplate();
 	const {
 		root,
@@ -61,7 +59,7 @@ function Game(store, props) {
 		});
 	};
 
-	root.update(props);
+	store.subscribe(root.update);
 
 	return root;
 }

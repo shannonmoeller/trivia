@@ -1,23 +1,37 @@
 import { createStore } from './vendor.js';
-import { reviewQuestions, generalQuestions } from './questions.js';
+import { questions } from './questions.js';
 import {
-	WEDNESDAY,
-	THURSDAY,
-	createStorage,
+	getStorage,
+	setStorage,
 	getDayOfWeek,
 	getDayOfYear,
 	rotate,
-	shuffle,
 } from './util.js';
 
-const INTROS = {
-	[WEDNESDAY]: 'Stump day!',
-	[THURSDAY]: 'Thanks day!',
-};
+const INTROS = [
+	'Fun day!',
+	'Monday!',
+	'Tuesday!',
+	'Stump day!',
+	'Thanks day!',
+	'Fruit day!',
+	'Saturday!',
+];
 
-export function createTriviaGame() {
+function getGame() {
+	const prevGame = getStorage('game') || {};
+	const dayOfYear = getDayOfYear();
+
+	if (prevGame.id === dayOfYear) {
+		return prevGame;
+	}
+
+	const prevIndex = prevGame.index || 0;
+	const prevOffset = prevGame.offset || 0;
+	const offset = prevIndex + prevOffset;
+
 	const intro = {
-		question: INTROS[getDayOfWeek()] || '',
+		question: INTROS[getDayOfWeek()],
 		answer: '',
 	};
 
@@ -33,19 +47,24 @@ export function createTriviaGame() {
 	];
 
 	return {
+		id: dayOfYear,
 		index: 0,
+		offset,
 		showQuestion: true,
 		showAnswer: false,
-		questions: [intro, ...reviewQuestions, ...shuffle(generalQuestions)],
-		players: rotate(players, getDayOfYear()),
+		players: rotate(players, dayOfYear),
+		questions: [intro, ...rotate(questions, offset)],
 	};
 }
 
-export function createTriviaStore() {
-	const storage = createStorage('trivia', 2);
-	const store = createStore(storage.get() || createTriviaGame());
+function setGame(nextState) {
+	setStorage('game', nextState);
+}
 
-	store.subscribe(storage.set);
+export function createTriviaStore() {
+	const store = createStore(getGame());
+
+	store.subscribe(setGame);
 
 	return {
 		...store,
@@ -62,7 +81,7 @@ export function createTriviaStore() {
 		next() {
 			store.set((prev) => ({
 				...prev,
-				index: Math.min(prev.questions.length - 1, prev.index + 1),
+				index: prev.index + 1,
 				showQuestion: true,
 				showAnswer: false,
 			}));
