@@ -1,9 +1,4 @@
-export {
-	html,
-	refs,
-	repeat,
-} from 'https://code.shannonmoeller.com/dhtml/v1.0.0/dhtml.js';
-
-export {
-	createStore,
-} from 'https://code.shannonmoeller.com/store/v1.0.0/store.js';
+export { refs } from './vendor/refs.js';
+export { repeat } from './vendor/repeat.js';
+export { createStore } from './vendor/store.js';
+export { html } from './vendor/template.js';
