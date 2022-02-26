@@ -4,7 +4,7 @@ import {
 	getStorage,
 	setStorage,
 	getDayOfWeek,
-	getDayOfYear,
+	getDay,
 	rotate,
 } from './util.js';
 
@@ -20,7 +20,7 @@ const INTROS = [
 
 function getGame() {
 	const prevGame = getStorage('game') || {};
-	const dayOfYear = getDayOfYear();
+	const dayOfYear = getDay();
 
 	if (prevGame.id === dayOfYear) {
 		return prevGame;
@@ -36,14 +36,9 @@ function getGame() {
 	};
 
 	const players = [
-		{
-			name: 'Clara',
-			score: 0,
-		},
-		{
-			name: 'Alan',
-			score: 0,
-		},
+		{ name: 'Clara', score: 0 },
+		{ name: 'Alan', score: 0 },
+		{ name: 'Levi', score: 0 },
 	];
 
 	return {

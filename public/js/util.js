@@ -19,10 +19,10 @@ export function getDayOfWeek() {
 	return new Date().getDay();
 }
 
-export function getDayOfYear() {
+export function getDay() {
+	const then = new Date(2022, 1, 1);
 	const now = new Date();
-	const start = new Date(now.getFullYear(), 0, 0);
-	const diff = now - start;
+	const diff = now - then;
 
 	return Math.floor(diff / DAY);
 }
