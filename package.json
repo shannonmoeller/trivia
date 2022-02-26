@@ -1,4 +1,25 @@
 {
   "private": true,
-  "type": "module"
+  "type": "module",
+  "scripts": {
+    "lint": "npx eslint --fix '**/*.js' && npx stylelint --fix '**/*.css' && prettier --write '**/*.{html,css,js}'"
+  },
+  "eslintConfig": {
+    "extends": "eslint:recommended",
+    "env": {
+      "browser": true,
+      "es6": true,
+      "node": true
+    },
+    "parserOptions": {
+      "ecmaVersion": 2021,
+      "sourceType": "module"
+    }
+  },
+  "stylelint": {
+    "extends": "stylelint-config-recommended"
+  },
+  "prettier": {
+    "singleQuote": true
+  }
 }
